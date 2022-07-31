@@ -1,0 +1,36 @@
+﻿@page "/editproduct/{ProductId:int}"
+@attribute [Authorize(Roles = "Seller")]
+
+<PageTitle>Edit Product</PageTitle>
+
+<MessageBarComponent InputMessage="@message" />
+
+@if (Product == null)
+{
+    <LoadingIndicationComponent></LoadingIndicationComponent>
+}
+else
+{
+    <h2 class="align-content-center text-center">Edit Products "@Product.ProductName"</h2>
+    <EditForm Model="Product" OnValidSubmit="HandleUpdateProduct">
+        <DataAnnotationsValidator />
+        <div class="mb-3">
+            <label for="ProductName">Product Name</label>
+            <InputText id="ProductName" @bind-Value="Product.ProductName" class="form-control" />
+            <ValidationMessage For="@(() => Product.ProductName)" />
+        </div>
+        <div class="mb-3">
+            <label for="AmountAvailable">Amount Available</label>
+            <InputNumber id="AmountAvailable" @bind-Value="Product.AmountAvailable" class="form-control" />
+            <ValidationMessage For="@(() => Product.AmountAvailable)" />
+        </div>
+        <div class="mb-3">
+            <label for="Cost">Cost (cent)</label>
+            <InputNumber id="Cost" @bind-Value="Product.Cost" class="form-control" />
+            <ValidationMessage For="@(() => Product.Cost)" />
+        </div>
+        <button type="submit" class="btn btn-success">Save</button>
+    </EditForm>
+}
+
+

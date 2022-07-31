@@ -1,0 +1,39 @@
+﻿@page "/ProductDetail/{ProductId:int}"
+@attribute [Authorize(Roles = "Seller")]
+
+<PageTitle>Product Detail</PageTitle>
+
+<MessageBarComponent InputMessage="@message" />
+
+<h2 class="align-content-center text-center my-5">Product Details</h2>
+
+@if (Product == null)
+{
+    <LoadingIndicationComponent></LoadingIndicationComponent>
+}
+else
+{
+    <div class="row">
+        <div class="col-12 col-md-6">
+            <img src="logo.svg" class="img-fluid p-2" alt="Product Image" />
+        </div>
+        <div class="col-12 col-md-6">
+            <div>
+                Name: @Product.ProductName
+            </div>
+            <div>
+                Cost (cent): @Product.Cost
+            </div>
+            <div>
+                Amount Available: @Product.AmountAvailable
+            </div>
+            <br />
+            <a class="btn btn-primary" href="/myproducts">My Products</a>
+            <a class="btn btn-primary" href="/editproduct/@ProductId">Modify Product</a>
+            <button class="btn btn-danger" @onclick="HandleDeleteProduct">Delete Product</button>
+        </div>
+
+
+    </div>
+
+}

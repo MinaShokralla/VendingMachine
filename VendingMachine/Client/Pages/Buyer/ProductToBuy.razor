@@ -1,0 +1,44 @@
+﻿@page "/ProductToBuy/{ProductId:int}"
+@attribute [Authorize(Roles = "Buyer")]
+
+<PageTitle>Product to Buy</PageTitle>
+
+<MessageBarComponent InputMessage="@message" />
+
+<h2 class="align-content-center text-center">Product to Buy</h2>
+
+@if (Product == null || IsBusy)
+{
+    <LoadingIndicationComponent></LoadingIndicationComponent>
+}
+else
+{
+    <h2>Product Name</h2>
+    <div>
+        Name: @Product.ProductName
+    </div>
+    <div>
+        Cost: @Product.Cost
+    </div>
+    <div>
+        Amount Available: @Product.AmountAvailable
+    </div>
+    <br />
+    <h2>Total Amount Of Deposit</h2>
+    <div>
+        Amount (cent): @TotalDepositAmount
+    </div>
+    <br />
+
+
+    <h2>Amount of Product to Buy</h2>
+    <EditForm Model="ProductModel" OnValidSubmit="HandleBuyProduct">
+        <DataAnnotationsValidator />
+        <div class="mb-3 col-4">
+            <label for="amountOfProduct">Amount of product to buy: </label>
+            <InputNumber id="amountOfProduct" @bind-Value="ProductModel.amountOfProduct" class="form-control" />
+            <ValidationMessage For="@(() => ProductModel.amountOfProduct)" />
+        </div>
+        <button type="submit" class="btn btn-success">Buy</button>
+    </EditForm>
+}

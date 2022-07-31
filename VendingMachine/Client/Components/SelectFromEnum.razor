@@ -1,0 +1,41 @@
+﻿@typeparam TEnum
+
+
+<div class="px-3 py-1">
+
+  <div class="form-group row">
+    <label for="Issues" class="fw-bold">@(TextLabel): </label>
+    <InputSelect class="form-select text-success fw-bold fw-light" @bind-Value="@EnumValue">
+      @foreach (var item in Enum.GetValues(typeof(TEnum)))
+      {
+        <option value="@item">@item.ToString()</option>
+      }
+    </InputSelect>
+  </div>
+
+</div>
+
+
+
+@code {
+  [Parameter]
+  public string TextLabel { get; set; }
+
+  private TEnum enumValue { get; set; }
+  [Parameter]
+  public TEnum EnumValue
+  {
+    get { return enumValue; }
+    set
+    {
+      if (!object.Equals(enumValue, value))
+      {
+        enumValue = value;
+        if (EnumValueChanged.HasDelegate) EnumValueChanged.InvokeAsync(value);
+      }
+    }
+  }
+
+  [Parameter]
+  public EventCallback<TEnum> EnumValueChanged { get; set; }
+}

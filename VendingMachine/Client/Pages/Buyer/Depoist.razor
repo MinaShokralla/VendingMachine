@@ -1,0 +1,57 @@
+﻿@page "/deposit"
+@attribute [Authorize(Roles = "Buyer")]
+
+<PageTitle>deposit</PageTitle>
+
+<h2 class="align-content-center text-center">Deposit</h2>
+
+<MessageBarComponent InputMessage="@message" />
+
+@if (IsBusy)
+{
+    <LoadingIndicationComponent></LoadingIndicationComponent>
+}
+else
+{
+    @if (TotalDepositAmount > 0)
+    {
+        <dev class="row">
+            <button class="btn btn-danger col-sm-2 col-12" @onclick="HandleResetDepoistAll">Reset Deposit All</button>
+            <h5 class="offset-sm-0 offset-0 col-sm-10 col-12 d-flex justify-content-end">
+                Total Depoist Amount: <b> @TotalDepositAmount </b> (cent)
+            </h5>
+        </dev>
+    }
+
+    <br />
+
+    <dev class="row">
+        <CoinComponent AvailableAmount="@Coin5Amount"
+                   coinType="CoinTypeEnum.Coin5Cent"
+                   CoinName="5 cents"
+                   ImageURL="images/coins/5Cent.png"
+                   OnClick="HandleDepositCoin"></CoinComponent>
+        <CoinComponent AvailableAmount="@Coin10Amount"
+                   coinType="CoinTypeEnum.Coin10Cent"
+                   CoinName="10 cents"
+                   ImageURL="images/coins/10Cent.png"
+                   OnClick="HandleDepositCoin"></CoinComponent>
+        <CoinComponent AvailableAmount="@Coin20Amount"
+                   coinType="CoinTypeEnum.Coin20Cent"
+                   CoinName="20 cents"
+                   ImageURL="images/coins/20Cent.png"
+                   OnClick="HandleDepositCoin"></CoinComponent>
+        <CoinComponent AvailableAmount="@Coin50Amount"
+                   coinType="CoinTypeEnum.Coin50Cent"
+                   CoinName="50 cents"
+                   ImageURL="images/coins/50Cent.png"
+                   OnClick="HandleDepositCoin"></CoinComponent>
+        <CoinComponent AvailableAmount="@Coin100Amount"
+                   coinType="CoinTypeEnum.Coin100Cent"
+                   CoinName="100 cents"
+                   ImageURL="images/coins/100Cent.png"
+                   OnClick="HandleDepositCoin"></CoinComponent>
+    </dev>
+}
+
+

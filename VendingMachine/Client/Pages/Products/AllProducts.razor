@@ -1,0 +1,21 @@
+﻿@page "/products"
+
+<PageTitle>All Products</PageTitle>
+
+<h2 class="align-content-center text-center">All Products</h2>
+
+<MessageBarComponent InputMessage="@message" />
+
+@if (Products == null)
+{
+    <LoadingIndicationComponent></LoadingIndicationComponent>
+}
+else
+{
+    <ul class="row">
+        @foreach (var product in Products)
+        {
+            <ProductComponent Product="@product"></ProductComponent>
+        }
+    </ul>
+}

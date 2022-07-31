@@ -1,0 +1,26 @@
+﻿@page "/myproducts"
+@attribute [Authorize(Roles = "Seller")]
+
+<PageTitle>My-Products</PageTitle>
+
+<h2 class="align-content-center text-center">My Products</h2>
+
+<MessageBarComponent InputMessage="@message" />
+
+<a class="btn btn-success my-3" href="/AddProduct">Add New Product</a>
+
+
+
+@if (Products == null)
+{
+    <LoadingIndicationComponent></LoadingIndicationComponent>
+}
+else
+{
+    <ul class="row">
+        @foreach (var product in Products)
+        {
+            <MyProductComponent Product="@product"></MyProductComponent>
+        }
+    </ul>
+}

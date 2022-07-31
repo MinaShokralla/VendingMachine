@@ -1,0 +1,37 @@
+﻿@page "/addproduct"
+@attribute [Authorize(Roles = "Seller")]
+
+<PageTitle>Create Product</PageTitle>
+
+<h2 class="align-content-center text-center">Create a New Product</h2>
+
+<MessageBarComponent InputMessage="@message" />
+
+@if (Product == null)
+{
+    <LoadingIndicationComponent></LoadingIndicationComponent>
+}
+else
+{
+    <EditForm Model="Product" OnValidSubmit="HandleCreateProduct">
+        <DataAnnotationsValidator />
+        <div class="mb-3">
+            <label for="ProductName">Product Name</label>
+            <InputText id="ProductName" @bind-Value="Product.ProductName" class="form-control" />
+            <ValidationMessage For="@(() => Product.ProductName)" />
+        </div>
+        <div class="mb-3">
+            <label for="AmountAvailable">Amount Available</label>
+            <InputNumber id="AmountAvailable" @bind-Value="Product.AmountAvailable" class="form-control" />
+            <ValidationMessage For="@(() => Product.AmountAvailable)" />
+        </div>
+        <div class="mb-3">
+            <label for="Cost">Cost (cent)</label>
+            <InputNumber id="Cost" @bind-Value="Product.Cost" class="form-control" />
+            <ValidationMessage For="@(() => Product.Cost)" />
+        </div>
+        <button type="submit" class="btn btn-success">Save</button>
+    </EditForm>
+}
+
+

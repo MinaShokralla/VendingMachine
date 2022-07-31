@@ -1,0 +1,40 @@
+﻿@using VendingMachine.Shared.Dto
+
+<div class="card col-xl-4 col-lg-6 p-1">
+    <div class="card-header text-center bg-success text-light mx-1 row">
+        <div>@Product.ProductName</div>
+    </div>
+    <div class="card-body row">
+        <img class="media-img" src="logo.svg" alt="@Product.ProductName" />
+    </div>
+
+    <div class="card-body row">
+         <AuthorizeView >Product By: @Product.Seller.Username <br /></AuthorizeView>
+        Available Amount: @Product.AmountAvailable
+    </div>
+
+    <div class="card-footer d-flex justify-content-end price">
+        <div class="align-content-center align-middle">Price: @Product.Cost (cent) </div>
+    </div>
+    <AuthorizeView Roles="Buyer">
+        <div class="card-footer d-flex justify-content-end">
+            <button class="btn btn-primary mx-3" @onclick="HandleBuyProduct"> Buy</button>
+        </div>
+    </AuthorizeView>
+
+</div>
+
+@code {
+    [Parameter]
+    public ProductDto Product { get; set; } = new();
+
+    [Inject]
+
+    public NavigationManager navigationManager { get; set; }
+
+    void HandleBuyProduct()
+    {
+        navigationManager.NavigateTo($"/ProductToBuy/{Product.Id}");
+    }
+
+}

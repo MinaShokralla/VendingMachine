@@ -1,0 +1,12 @@
+﻿
+@if (!string.IsNullOrWhiteSpace(InputMessage))
+{
+   <div class="alert @Style" role="alert">
+    @* Split long messages into several lines *@
+    @foreach(var line in InputMessage.Split(Environment.NewLine))
+        {
+            @line
+            <br/>
+        }
+    </div>
+}

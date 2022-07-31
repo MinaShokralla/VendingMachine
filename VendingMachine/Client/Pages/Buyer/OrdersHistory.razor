@@ -1,0 +1,38 @@
+﻿@page "/Ordershistory"
+
+<PageTitle>Order History</PageTitle>
+
+<h2 class="align-content-center text-center">Your Orders</h2>
+
+@if (LstOfOrders == null)
+{
+    <LoadingIndicationComponent></LoadingIndicationComponent>
+}
+else if (LstOfOrders.Count == 0)
+{
+    <h5>There are no orders performed yet..</h5>
+}
+else
+{
+    <table class="table table-striped table-hover caption-top">
+        <thead>
+            <tr>
+                <th>Product Name</th>
+                <th>Cost (cent)</th>
+                <th>Purchase Amount</th>
+                <th>Purchase Time</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var order in LstOfOrders)
+            {
+                <tr>
+                    <td>@order.ProductName</td>
+                    <td>@order.Cost</td>
+                    <td>@order.AmountOfProduct</td>
+                    <td>@order.BoughtOn.ToString("dd-MMMM-yyyy hh:mm:ss")</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
