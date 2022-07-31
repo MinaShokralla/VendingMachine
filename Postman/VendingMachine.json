@@ -1,0 +1,1748 @@
+{
+	"info": {
+		"_postman_id": "dded4bf2-bc66-4dbc-b40c-e97ed4a6d231",
+		"name": "MVP Vending Machine",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "19055516"
+	},
+	"item": [
+		{
+			"name": "User - Register Users",
+			"item": [
+				{
+					"name": "Password Complexity",
+					"item": [
+						{
+							"name": "Password not match Complexity lenght",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"username\": \"mina.New\",\r\n  \"password\": \"xyz_1\",\r\n  \"confirmPassword\": \"xyz_1\",\r\n  \"role\": 0\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/Auth/register",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"Auth",
+										"register"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Password not match Complexity One digit",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"username\": \"mina.New\",\r\n  \"password\": \"XyzMVPTest_\",\r\n  \"confirmPassword\": \"XyzMVPTest_\",\r\n  \"role\": 0\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/Auth/register",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"Auth",
+										"register"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Password not match Complexity One lowercase letter",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"username\": \"mina.New\",\r\n  \"password\": \"XYZMINAMVP_\",\r\n  \"confirmPassword\": \"XYZMINAMVP_\",\r\n  \"role\": 0\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/Auth/register",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"Auth",
+										"register"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Password not match Complexity One Uppercase letter",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"username\": \"mina.New\",\r\n  \"password\": \"xyzminamvp_\",\r\n  \"confirmPassword\": \"xyzminamvp_\",\r\n  \"role\": 0\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/Auth/register",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"Auth",
+										"register"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Password not match Complexity One Special Char",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"username\": \"mina.New\",\r\n  \"password\": \"Password123\",\r\n  \"confirmPassword\": \"Password123\",\r\n  \"role\": 0\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/Auth/register",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"Auth",
+										"register"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "USER Create New Buyer User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"username\": \"mina.Seller1\",\r\n  \"password\": \"Password@123\",\r\n  \"confirmPassword\": \"Password@123\",\r\n  \"role\": 0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/Auth/register",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"Auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "USER Create New Seller User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"username\": \"mina.seller3\",\r\n  \"password\": \"Password@123\",\r\n  \"confirmPassword\": \"Password@123\",\r\n  \"role\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/Auth/register",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"Auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "USER Create New User with Invalid Name",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"username\": \"mina      buyer1\",\r\n  \"password\": \"Password@123\",\r\n  \"confirmPassword\": \"Password@123\",\r\n  \"role\": 0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/Auth/register",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"Auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "USER Create a new User with Existing Username",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"username\": \"mina.buyer1\",\r\n  \"password\": \"Password@123\",\r\n  \"confirmPassword\": \"Password@123\",\r\n  \"role\": 0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/Auth/register",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"Auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User - Login",
+			"item": [
+				{
+					"name": "Update - User",
+					"item": [
+						{
+							"name": "Update Password Without Login",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"password\": \"Password@123\",\r\n  \"confirmPassword\": \"Password@123\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/Auth/change-password",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"Auth",
+										"change-password"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Password not match Complexity",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{TokenSeller1}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"password\": \"Password123\",\r\n  \"confirmPassword\": \"Password123\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/Auth/change-password",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"Auth",
+										"change-password"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Password with match Complexity",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{TokenBuyer1}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"password\": \"Password@123\",\r\n  \"confirmPassword\": \"Password@123\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/Auth/change-password",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"Auth",
+										"change-password"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "USER Login Successfully",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"username\": \"MINA.seller2\",\r\n  \"password\": \"Password@123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/Auth/login",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"Auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "USER Login with wrong Password",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"username\": \"mina.buyer1\",\r\n  \"password\": \"Password123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/Auth/login",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"Auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "USER Login with Not Exist Username",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"username\": \"minabuyer\",\r\n  \"password\": \"Password123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/Auth/login",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"Auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Product",
+			"item": [
+				{
+					"name": "Get Products",
+					"item": [
+						{
+							"name": "All Products",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{TokenBuyer1}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/Product/products",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"Product",
+										"products"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "All Products Without Auth",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/Product/products",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"Product",
+										"products"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "My Products",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{TokenSeller1}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/Product/myproducts",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"Product",
+										"myproducts"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "My One Products Exist",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{TokenSeller1}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/Product/products/5",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"Product",
+										"products",
+										"5"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "My One Product which Not Exist or not by the requester",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{TokenSeller1}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/Product/products/31",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"Product",
+										"products",
+										"31"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Update Product",
+					"item": [
+						{
+							"name": "Update My Product",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{TokenSeller1}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"productName\": \"Updated - Product - 1\",\r\n  \"amountAvailable\": 11,\r\n  \"cost\": 3.88\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/Product/1",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"Product",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Product is not owned by requester",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{TokenSeller2}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"productName\": \"Update Product - 1 - TRYING TO Update\",\r\n  \"amountAvailable\": 10,\r\n  \"cost\": 3.99\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/Product/1",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"Product",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Create a new Product",
+					"item": [
+						{
+							"name": "Create a new Product By Seller-1",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{TokenSeller1}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"productName\": \"Product - 3\",\r\n  \"amountAvailable\": 17,\r\n  \"cost\": 7.23\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/Product",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"Product"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create a new Product By Seller-2",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{TokenSeller2}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"productName\": \"Product - 6\",\r\n  \"amountAvailable\": 24,\r\n  \"cost\": 12.55\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/Product",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"Product"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create a new Product By Buyer",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{TokenBuyer1}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"productName\": \"Product - by Buyer\",\r\n  \"amountAvailable\": 24,\r\n  \"cost\": 12.55\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/Product",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"Product"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create a new Product with invalid values",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{TokenSeller1}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"productName\": \"Product - 50\",\r\n  \"amountAvailable\": 24.36,\r\n  \"cost\": -10.3\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/Product",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"Product"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Delete Product",
+					"item": [
+						{
+							"name": "Delete My Product",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{TokenSeller1}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/Product/products/10",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"Product",
+										"products",
+										"10"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Product not by the owner",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{TokenSeller2}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/Product/products/1",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"Product",
+										"products",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Product not exist",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{TokenSeller1}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/Product/products/100",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"Product",
+										"products",
+										"100"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Buyer - Deposit",
+			"item": [
+				{
+					"name": "Buyer - Get",
+					"item": [
+						{
+							"name": "Get Buyer Available Coins",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{TokenBuyer1}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"coinType\": 5,\r\n  \"count\": 1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/Buyer",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"Buyer"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Buyer Available Coins with No login",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"coinType\": 5,\r\n  \"count\": 1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/Buyer",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"Buyer"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Buyer Order History",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTUxMiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjEiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoibWluYS5idXllcjEiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJCdXllciIsImV4cCI6MTY1OTM0MTE2NX0.cIt4Ac1hqS12sQVHMGYIG4hofBcTLmmKrdlAK9JziFOaoKah9FyW9iu0k1sUhWivLEo5xTYpmmhRmm_YqYp3WQ",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"coinType\": 5,\r\n  \"count\": 1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/Buyer/GetOrderHistory",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"Buyer",
+										"GetOrderHistory"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Buyer Order History with No login",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"coinType\": 5,\r\n  \"count\": 1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/Buyer/GetOrderHistory",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"Buyer",
+										"GetOrderHistory"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Buyer Total Amount of Deposit",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{TokenBuyer1}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"coinType\": 5,\r\n  \"count\": 1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/Buyer/TotalDeposit",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"Buyer",
+										"TotalDeposit"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Buyer Total Amount of Deposit With No Login",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"coinType\": 5,\r\n  \"count\": 1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/Buyer/TotalDeposit",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"Buyer",
+										"TotalDeposit"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Deposit",
+					"item": [
+						{
+							"name": "Deposit Without Login",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"coinType\": 5,\r\n  \"count\": 1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/Buyer/Deposit",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"Buyer",
+										"Deposit"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Deposit With Seller Role",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{TokenSeller1}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"coinType\": 5,\r\n  \"count\": 12\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/Buyer/Deposit",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"Buyer",
+										"Deposit"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Deposit 5 cent Coin",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{TokenBuyer1}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"coinType\": 5,\r\n  \"count\": 1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/Buyer/Deposit",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"Buyer",
+										"Deposit"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Deposit 10 cent Coin",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{TokenBuyer1}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"coinType\": 10,\r\n  \"count\": 1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/Buyer/Deposit",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"Buyer",
+										"Deposit"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Deposit 20 cent Coin",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{TokenBuyer1}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"coinType\": 20,\r\n  \"count\": 1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/Buyer/Deposit",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"Buyer",
+										"Deposit"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Deposit 50 cent Coin",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{TokenBuyer1}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"coinType\": 50,\r\n  \"count\": 1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/Buyer/Deposit",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"Buyer",
+										"Deposit"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Deposit 100 cent Coin",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{TokenBuyer1}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"coinType\": 100,\r\n  \"count\": 1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/Buyer/Deposit",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"Buyer",
+										"Deposit"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Deposit Not Valid Coins",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{TokenBuyer1}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"coinType\": 16,\r\n  \"count\": 1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/Buyer/Deposit",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"Buyer",
+										"Deposit"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Deposit Not Amount of Coins",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{TokenBuyer1}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"coinType\": 5,\r\n  \"count\": 1.1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/Buyer/Deposit",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"Buyer",
+										"Deposit"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Deposit Reset",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{TokenBuyer1}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/Buyer/Reset",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"Buyer",
+										"Reset"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Deposit Reset Without Login",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/Buyer/Reset",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"Buyer",
+										"Reset"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Buy - Product",
+			"item": [
+				{
+					"name": "Buy one",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TokenBuyer1}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"productId\": 2,\r\n  \"amountOfProduct\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/Buyer/Buy",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"Buyer",
+								"Buy"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Buy Try to get Product without Deposit",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TokenBuyer1}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"productId\": 2,\r\n  \"amountOfProduct\": 100\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/Buyer/Buy",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"Buyer",
+								"Buy"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Buy Try to get more than available Products",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TokenBuyer1}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"productId\": 2,\r\n  \"amountOfProduct\": 59\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/Buyer/Buy",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"Buyer",
+								"Buy"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Buy one With Seller Role",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TokenSeller1}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"productId\": 2,\r\n  \"amountOfProduct\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/Buyer/Buy",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"Buyer",
+								"Buy"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "url",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "TokenBuyer1",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "TokenSeller1",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "TokenBuyer2",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "TokenSeller2",
+			"value": "",
+			"type": "string"
+		}
+	]
+}
