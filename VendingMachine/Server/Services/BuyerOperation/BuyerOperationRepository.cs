@@ -129,6 +129,7 @@ namespace VendingMachine.WebAPI.Services.BuyerOperation
             var product = await _dbContext.Products.FindAsync(productToBuy.productId);
             product!.AmountAvailable -= productToBuy.amountOfProduct;
             var TotalCostOfProduct = product.Cost * productToBuy.amountOfProduct;
+            UpdateTheCoinIfAnyOneMissing(user.Deposit!.Coins);
             var AmountSpend = UpdateDepositCoins(user.Deposit!.Coins, TotalCostOfProduct);
 
             var customerProduct = _mapper.Map<CustomerProduct>(product);
@@ -164,6 +165,18 @@ namespace VendingMachine.WebAPI.Services.BuyerOperation
             return TotalDeposit - NewTotalDepositAfterBought;
         }
 
+
+        private void UpdateTheCoinIfAnyOneMissing(ICollection<Coin>? Coins)
+        {
+            if (Coins == null) Coins = new List<Coin>();    
+            foreach (var coinType in Enum.GetValues(typeof(CoinTypeEnum)).Cast<CoinTypeEnum>())
+            {
+                if (!Coins.Any(c => c.CoinType == coinType))
+                {
+                    Coins.Add(new Coin { CoinType = coinType });
+                }
+            }
+        }
 
         public int UpdateDepositCoins(ICollection<Coin>? Coins, double Cost)
         {
