@@ -20,7 +20,7 @@ namespace VendingMachine.Client.Services.AuthService
 
         public async Task<ServiceResponse<string>?> Login(UserLoginDto request)
         {
-            var result = await _http.PutAsJsonAsync("api/auth/login", request);
+            var result = await _http.PutAsJsonAsync("api/auth/login", request);     
             return await result.Content.ReadFromJsonAsync<ServiceResponse<string>>();
         }
 

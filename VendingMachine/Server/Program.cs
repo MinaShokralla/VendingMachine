@@ -16,14 +16,11 @@ builder.Services.AddDbContext<DataContext>
     (options => options.UseSqlServer(builder.Configuration.GetConnectionString("MVPDBConnection")));
 
 
-
-
-
 builder.Services.AddControllersWithViews().AddNewtonsoftJson(options =>
 {
-    options.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
-    options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
-}); ;
+  options.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
+  options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
+});
 builder.Services.AddRazorPages();
 
 builder.Services.AddEndpointsApiExplorer();
@@ -40,14 +37,14 @@ builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>
     {
-        options.TokenValidationParameters = new TokenValidationParameters
-        {
-            ValidateIssuerSigningKey = true,
-            IssuerSigningKey = new SymmetricSecurityKey(System.Text.Encoding.UTF8
-                                    .GetBytes(builder.Configuration.GetSection("TokenSettings:Token").Value)),
-            ValidateIssuer = false,
-            ValidateAudience = false
-        };
+      options.TokenValidationParameters = new TokenValidationParameters
+      {
+        ValidateIssuerSigningKey = true,
+        IssuerSigningKey = new SymmetricSecurityKey(System.Text.Encoding.UTF8
+                                  .GetBytes(builder.Configuration.GetSection("TokenSettings:Token").Value)),
+        ValidateIssuer = false,
+        ValidateAudience = false
+      };
     });
 builder.Services.AddHttpContextAccessor();
 
@@ -57,15 +54,15 @@ var app = builder.Build();
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
-    app.UseSwagger();
-    app.UseSwaggerUI();
-    app.UseWebAssemblyDebugging();
+  app.UseSwagger();
+  app.UseSwaggerUI();
+  app.UseWebAssemblyDebugging();
 }
 else
 {
-    app.UseExceptionHandler("/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-    app.UseHsts();
+  app.UseExceptionHandler("/Error");
+  // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+  app.UseHsts();
 }
 
 app.UseHttpsRedirection();
